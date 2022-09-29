@@ -14,7 +14,7 @@ spec:
       labels:
         app: guestbook
         tier: frontend
-        tower: uo
+        tower: ui
     spec:
       containers:
       - name: php-redis
