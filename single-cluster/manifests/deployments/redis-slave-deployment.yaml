@@ -15,6 +15,7 @@ spec:
         app: redis
         role: slave
         tier: backend
+        tower: cache
     spec:
       containers:
       - name: slave
