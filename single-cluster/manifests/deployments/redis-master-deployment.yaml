@@ -15,7 +15,6 @@ spec:
         app: redis
         role: master
         tier: backend
-        tower: cache
     spec:
       containers:
       - name: master
