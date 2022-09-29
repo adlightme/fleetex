@@ -15,14 +15,13 @@ spec:
         app: redis
         role: slave
         tier: backend
-        tower: cache
     spec:
       containers:
       - name: slave
         image: gcr.io/google_samples/gb-redisslave:v2
         resources:
           requests:
-            cpu: 100m
-            memory: 100Mi
+            cpu: 200m
+            memory: 200Mi
         ports:
         - containerPort: 6379
