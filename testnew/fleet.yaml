@@ -16,7 +16,7 @@ helm:
       minio:
         ## Use minio
         enabled: true
-        storageClassName: csi-storage-nas
+        storageClassName: longhorn
       analyticsEnabled: false
       uiIngress:
         ## Use Ingress
@@ -57,6 +57,3 @@ helm:
         hosts:
           - testkube-dash.k8s-svil01.nivolapiemonte.it
       apiServerEndpoint: "http://testkube-api.k8s-svil01.nivolapiemonte.it"
-dependsOn:
-- name: repo-svil-csi-nivola-fleet-csi-svil-trident
-
