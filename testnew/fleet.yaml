@@ -1,0 +1,62 @@
+defaultNamespace: testkube
+
+helm:
+  chart: testkube
+  repo: https://kubeshop.github.io/helm-charts
+  releaseName: testkube
+  version: 1.8.57
+  values:
+    mongodb:
+      service:
+        port: "27017"
+        portNane: "mongodb"
+        type: ClusterIP
+        nodePort: false
+    testkube-api:
+      minio:
+        ## Use minio
+        enabled: true
+        storageClassName: csi-storage-nas
+      analyticsEnabled: false
+      uiIngress:
+        ## Use Ingress
+        enabled: true
+        ## @param ingress.annotations [object] Additional annotations for the Ingress resource.
+        ## e.g annotations for NGINX Ingress Controller:
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
+          kubernetes.io/ingress.class: traefik-csi
+        ##   kubernetes.io/ingress.class: nginx
+        ##   nginx.ingress.kubernetes.io/rewrite-target: /$1
+        ##   nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+        ##   nginx.ingress.kubernetes.io/ssl-redirect: "false"
+        ##   nginx.ingress.kubernetes.io/enable-cors: "true"
+        ##   nginx.ingress.kubernetes.io/cors-allow-methods: "GET"
+        ##   nginx.ingress.kubernetes.io/cors-allow-credentials: "false"
+        ## github oauth annotations (empty by default)
+        ##   nginx.ingress.kubernetes.io/auth-url: "http://$host/oauth2/auth"
+        ##   nginx.ingress.kubernetes.io/auth-signin: "http://$host/oauth2/start?rd=$escaped_request_uri"
+        ##   nginx.ingress.kubernetes.io/auth-url: ""
+        ##   nginx.ingress.kubernetes.io/auth-signin: ""
+        ## for websockets
+        ##  nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+        ##  nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+        path: /results/(v\d/executions.*)
+        ## Hostnames must be provided if Ingress is enabled.
+        hosts:
+          - testkube-api.k8s-svil01.nivolapiemonte.it
+
+
+    testkube-dashboard:
+      ingress:
+        enabled: "false"
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
+          kubernetes.io/ingress.class: traefik-csi
+        path: /
+        hosts:
+          - testkube-dash.k8s-svil01.nivolapiemonte.it
+      apiServerEndpoint: "http://testkube-api.k8s-svil01.nivolapiemonte.it"
+dependsOn:
+- name: repo-svil-csi-nivola-fleet-csi-svil-trident
+
