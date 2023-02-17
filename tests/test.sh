@@ -7,6 +7,8 @@ cd "$(dirname "$0")"
 
 rm -rf output
 
+#listener
+
 fleet -v
 
 for fixture in ./expected/single-cluster/*; do
