@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: numberconfig
+  namespace: debug-system
+data:
+  aone: zhundred
