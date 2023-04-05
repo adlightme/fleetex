@@ -3,5 +3,5 @@ data:
   key1: config1
 kind: ConfigMap
 metadata:
-  name: my-config
+  name: my-config2
   namespace: test
