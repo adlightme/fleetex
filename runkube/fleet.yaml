@@ -1,0 +1,3 @@
+defaultNamespace: test
+helm:
+  releaseName: test
