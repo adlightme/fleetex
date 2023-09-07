@@ -1,0 +1,7 @@
+defaultNamespace: cattle-monitoring-system
+helm:
+  version: "102.0.1+up40.1.2"
+  repo: http://10.5.78.4:8081/repository/helm-chart-repo/
+  chart: rancher-monitoring-crd
+  releaseName: rancher-monitoring-crd
+  values:
