@@ -1,0 +1,49 @@
+defaultNamespace: cattle-monitoring-system
+helm:
+  version: 102.0.1+up40.1.2
+  repo: https://charts.rancher.io
+  chart: rancher-monitoring
+  releaseName: rancher-monitoring
+  values:
+    global:
+      cattle:
+        clusterId: global.fleet.clusterLabels.management.cattle.io/cluster-name
+        clusterName: global.fleet.clusterLabels.management.cattle.io/cluster-display-name
+        rkePathPrefix: ""
+        rkeWindowsPathPrefix: ""
+        systemDefaultRegistry: ""
+        url: https://single.support.rancher.space
+        psp:
+          enabled: false
+      systemDefaultRegistry: ""
+      rbac:
+        create: true
+        userRoles:
+          create: true
+          aggregateToDefaultRoles: true
+        pspEnabled: false
+    hardenedKubelet:
+      enabled: false
+    kubelet:
+      enabled: true
+      serviceMonitor:
+        cAdvisor: false
+    prometheus:
+      prometheusSpec:
+        evaluationInterval: 1m
+        retention: 1d
+        retentionSize: 50GiB
+        scrapeInterval: 1m
+
+diff:
+  comparePatches:
+  - apiVersion: admissionregistration.k8s.io/v1
+    kind: MutatingWebhookConfiguration
+    name: rancher-monitoring-admission
+    operations:
+    - {"op":"remove", "path":"/webhooks"}
+  - apiVersion: admissionregistration.k8s.io/v1
+    kind: ValidatingWebhookConfiguration
+    name: rancher-monitoring-admission
+    operations:
+    - {"op":"remove", "path":"/webhooks"}
