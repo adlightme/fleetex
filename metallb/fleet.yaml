@@ -40,13 +40,9 @@ diff:
 
 targetCustomizations:
 - name: rke1
-  clusterSelector:
-    matchLabels:
-      clustertype: rke1
+  clusterName : c-dsb45
 - name: rke2
-  clusterSelector:
-    matchExpressions:
-      - {key: clustertype, operator: In, values: rke2}
+  clusterName: rke2
   helm:
     version: 4.14.1
 
