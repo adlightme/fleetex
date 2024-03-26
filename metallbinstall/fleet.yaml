@@ -1,0 +1,24 @@
+defaultNamespace: metallb-system
+helm:
+  chart: metallb
+  repo: https://charts.bitnami.com/bitnami
+  version: 4.1.14
+  timeoutSeconds: 2700
+  releaseName: metallb
+  valuesFiles: [core-values.yaml]
+  create_namespace: true
+  atomic: true
+  helm:
+    values:
+      speaker:
+        containerPorts:
+          metrics: 30003
+        extraEnvVars:
+        - name: METALLB_ML_BIND_PORT
+          value: "30004"
+
+targetCustomizations:
+- name: rke1
+  clusterName: c-dsb45
+- name: rke2
+  clusterName: rke2
