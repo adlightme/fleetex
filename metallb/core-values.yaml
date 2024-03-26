@@ -654,7 +654,7 @@ speaker:
   ##
   secretName: ""
   secretKey: ""
-  secretValue: ""
+  secretValue: "abc123xyz"
   ## @param speaker.extraEnvVars Extra environment variable to pass to the running container.
   ## For example:
   ## extraEnvVars:
