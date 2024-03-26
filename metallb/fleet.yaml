@@ -38,10 +38,15 @@ diff:
         - name: METALLB_ML_BIND_PORT
           value: "30004"
 
-- name: monteeversion
+targetCustomizations:
+- name: rke1
+  clusterSelector:
+    matchLabels:
+      clustertype: rke1
+- name: rke2
   clusterSelector:
     matchExpressions:
-      - {key: clustertype, operator: In, values: [rke1]}
+      - {key: clustertype, operator: In, values: rke2}
   helm:
     version: 4.14.1
 
