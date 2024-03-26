@@ -37,3 +37,11 @@ diff:
         extraEnvVars:
         - name: METALLB_ML_BIND_PORT
           value: "30004"
+
+- name: monteeversion
+  clusterSelector:
+    matchExpressions:
+      - {key: clustertype, operator: In, values: [rke1]}
+  helm:
+    version: 4.14.1
+
