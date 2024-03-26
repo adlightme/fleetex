@@ -38,5 +38,7 @@ diff:
 targetCustomizations:
 - name: rke1
   clusterName: c-dsb45
+  helm:
+    version: 4.14.1
 - name: rke2
   clusterName: rke2
