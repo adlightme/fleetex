@@ -15,7 +15,6 @@ diff:
     name: bgppeers.metallb.io
     operations:
     - {"op": "remove", "path": "/spec/conversion/webhook/clientConfig"}
-    - {"op": "remove", "path": "/spec/conversion/webhook/service"}
     - {"op": "remove", "path": "/status/acceptedNames/kind"}
     - {"op": "remove", "path": "/status/acceptedNames/plural"}
     - {"op": "remove", "path": "/status/conditions"}
