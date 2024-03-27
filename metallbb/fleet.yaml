@@ -37,9 +37,3 @@ diff:
         extraEnvVars:
         - name: METALLB_ML_BIND_PORT
           value: "30004"
-
-targetCustomizations:
-- name: local
-  clusterName: local
-  helm:
-    version: 4.16.1
