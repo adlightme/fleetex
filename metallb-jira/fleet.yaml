@@ -43,3 +43,5 @@ targetCustomizations:
   clusterName: local
   helm:
     version: 4.14.1
+    values:
+      secretValue: "abcxyz123"
