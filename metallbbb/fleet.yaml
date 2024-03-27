@@ -46,3 +46,13 @@ diff:
         extraEnvVars:
         - name: METALLB_ML_BIND_PORT
           value: "30004"
+
+targetCustomizations:
+- name: rke1
+  clusterName: c-dsb45
+  helm:
+    version: 4.1.23
+- name: rke2
+  clusterName: rke2
+  helm:
+    version: 4.1.23
