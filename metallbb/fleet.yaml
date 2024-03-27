@@ -2,7 +2,7 @@ defaultNamespace: metallb-system
 helm:
   chart: metallb
   repo: https://charts.bitnami.com/bitnami
-  version: 4.10.1
+  version: 4.11.0
   timeoutSeconds: 2700
   releaseName: metallb
   valuesFiles: [core-values.yaml]
