@@ -50,8 +50,8 @@ targetCustomizations:
 - name: rke1
   clusterName: c-dsb45
   helm:
-    version: 4.11.3
+    version: 4.11.4
 - name: rke2
   clusterName: rke2
   helm:
-    version: 4.11.3
+    version: 4.11.4
