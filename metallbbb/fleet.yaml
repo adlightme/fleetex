@@ -54,4 +54,4 @@ targetCustomizations:
 - name: rke2
   clusterName: rke2
   helm:
-    version: 4.11.4
+    version: 4.11.3
