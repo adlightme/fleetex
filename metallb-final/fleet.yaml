@@ -24,10 +24,6 @@ diff:
     name: bgppeers.metallb.io
     operations:
     - {"op": "remove", "path": "/spec/conversion/webhook/clientConfig/caBundle"}
-    - {"op": "remove", "path": "/status/acceptedNames/kind"}
-    - {"op": "remove", "path": "/status/acceptedNames/plural"}
-    - {"op": "remove", "path": "/status/conditions"}
-    - {"op": "remove", "path": "/status/storedVersions"}
 
   helm:
     values:
@@ -41,5 +37,9 @@ diff:
 targetCustomizations:
 - name: rke1
   clusterName: c-dsb45
+  helm:
+    version: 4.14.1
 - name: rke2
   clusterName: rke2
+  helm:
+    version: 4.14.1
