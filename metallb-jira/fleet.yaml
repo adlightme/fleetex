@@ -33,7 +33,7 @@ diff:
       speaker:
         containerPorts:
           metrics: 30003
-        secretValue: "abcpqr123"
+        secretValue: "abcxyz123"
         extraEnvVars:
         - name: METALLB_ML_BIND_PORT
           value: "30004"
